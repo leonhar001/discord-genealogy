@@ -610,7 +610,7 @@
         "data": {
           "id": "n55",
           "label": ".calebrity#0",
-          "image": "avatars/.calebrity_0.png"
+          "image": "avatars/calebrity_0.png"
         },
         "position": {
           "x": 7380.045034631514,
@@ -632,7 +632,7 @@
         "data": {
           "id": "n57",
           "label": ".naninani#0",
-          "image": "avatars/.naninani_0.png"
+          "image": "avatars/naninani_0.png"
         },
         "position": {
           "x": 26.159349555808973,
@@ -698,7 +698,7 @@
         "data": {
           "id": "n63",
           "label": ".pedrolind#0",
-          "image": "avatars/.pedrolind_0.png"
+          "image": "avatars/pedrolind_0.png"
         },
         "position": {
           "x": 7624.833761287066,
