@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Árvore Interativa</title>
+  <title>Discord Genealogy - Las Noches</title>
   <script src="https://unpkg.com/cytoscape@3.19.1/dist/cytoscape.min.js"></script>
   <style>
     #cy {
@@ -24,10 +24,11 @@
 
 <div id="cy"></div>
 <div id="controls">
-  <button onclick="changeLayout('preset')">Preset</button>
+  <button onclick="changeLayout('breadthfirst')">Breadth First</button>
   <button onclick="changeLayout('grid')">Grid</button>
   <button onclick="changeLayout('cose')">Cose</button>
   <button onclick="changeLayout('circle')">Circle</button>
+  <button onclick="changeLayout('concentric')">Concentric</button>
 </div>
 
 <script>
