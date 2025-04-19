@@ -7,51 +7,72 @@
   <style>
     #cy {
       width: 100%;
-      height: 90vh;
+      height: 800px;
       display: block;
-      background: #f5f5f5;
+      border: 1px solid #ccc;
+    }
+    #controls {
+      margin-top: 10px;
+    }
+    button {
+      padding: 5px 10px;
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
-  <div id="cy"></div>
-  <script>
-    fetch('graph_data.json')
-      .then(res => res.json())
-      .then(data => {
-        cytoscape({
-          container: document.getElementById('cy'),
-          elements: data.elements,
-          style: [
-            {
-              selector: 'node',
-              style: {
-                'background-image': 'data(image)',
-                'background-fit': 'cover',
-                'width': 60,
-                'height': 60,
-                'label': 'data(label)',
-                'text-valign': 'bottom',
-                'text-halign': 'center',
-                'color': '#000',
-                'font-size': '10px'
-              }
-            },
-            {
-              selector: 'edge',
-              style: {
-                'width': 2,
-                'line-color': '#999',
-                'target-arrow-color': '#ccc',
-                'target-arrow-shape': 'triangle'
-              }
+
+<div id="cy"></div>
+<div id="controls">
+  <button onclick="changeLayout('preset')">Preset</button>
+  <button onclick="changeLayout('grid')">Grid</button>
+  <button onclick="changeLayout('cose')">Cose</button>
+  <button onclick="changeLayout('circle')">Circle</button>
+</div>
+
+<script>
+  fetch('graph_data.json')
+    .then(res => res.json())
+    .then(data => {
+      const cy = cytoscape({
+        container: document.getElementById('cy'),
+        elements: data.elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-fit': 'cover',
+              'background-image': 'data(image)',
+              'label': 'data(label)',
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'font-size': 10,
+              'color': '#000',
+              'text-background-color': '#fff',
+              'text-background-opacity': 0.7,
+              'text-background-padding': 2
             }
-          ],
-          layout: {
-            name: 'preset'
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': 2,
+              'line-color': '#ccc',
+              'target-arrow-color': '#ccc',
+              'target-arrow-shape': 'triangle'
+            }
           }
-        });
+        ],
+        layout: {
+          name: 'cose'
+        }
       });
-  </script>
+
+      window.changeLayout = function (layoutName) {
+        cy.layout({ name: layoutName, animate: true }).run();
+      };
+    });
+</script>
+
 </body>
 </html>
